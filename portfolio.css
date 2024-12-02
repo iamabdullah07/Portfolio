@@ -1,0 +1,260 @@
+* {
+    padding: 0;
+    margin: 0;
+    color: white;
+    text-decoration: none;
+    line-height: 1.2rem;
+}
+
+body {
+    position: absolute;
+    display: flex;
+    height: 100vh;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 25px 0 25px;
+    opacity: 0%;
+    visibility: hidden;
+    animation: content-Animation 1.5s ease-in-out forwards;
+    animation-delay: 1.2s;
+    z-index: 6;
+}
+
+@keyframes content-Animation {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+ul li {
+    color: white;
+    margin-right: 35px;
+    cursor: pointer;
+}
+
+ul li:hover {
+    color: #7cf03d;
+}
+
+.active {
+    color: #7cf03d;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-home {
+    padding: 45px 15%;
+}
+
+.info-home h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.5rem;
+}
+
+.info-home h2 {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    line-height: 1.5rem;
+    margin-top: 8px;
+}
+
+.info-home h2 span {
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke: .7px #7cf03d;
+    animation: display-text 16s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+}
+
+@keyframes display-text {
+
+    25%,
+    100% {
+        display: none;
+    }
+}
+
+.info-home h2 span::before {
+    content: attr(data-text);
+    width: 0;
+    position: absolute;
+    border-right: 2px solid #7cf03d;
+    color: #7cf03d;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fill-text 4s linear infinite;
+}
+
+@keyframes fill-text {
+
+    10%,
+    100% {
+        width: 0;
+    }
+
+    70%,
+    90% {
+        width: 100%;
+    }
+}
+
+.info-home p {
+    font-size: 16px;
+    margin: 15px 0 15px;
+}
+
+.data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon a {
+    margin-left: 15px;
+}
+
+.icon a i {
+    color: #7cf03d;
+    padding: 8px;
+    border: 2px solid #7cf03d;
+    border-radius: 50%;
+}
+
+.icon a i:hover {
+    color: #1f242d;
+    background-color: #7cf03d;
+}
+
+.links {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+}
+
+button {
+    padding: 10px 30px;
+    color: #1f242d;
+    background-color: #7cf03d;
+    box-shadow: 0, 0, 10, #7cf03d;
+    border: 2px solid #7cf03d;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+button:hover {
+    color: #7cf03d;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.home-img .img-box {
+    position: relative;
+    height: 32vw;
+    width: 32vw;
+    border-radius: 50%;
+    background-color: #1f242d;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.home-img .img-box::before,
+.home-img .img-box::after {
+    content: "";
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    background: conic-gradient(transparent, transparent,
+            transparent, #7cf03d);
+    transform: rotate(0deg);
+    animation: rotate-barder 8s linear infinite;
+
+}
+
+.home-img .img-box::after {
+    animation-delay: -4s;
+}
+
+@keyframes rotate-barder {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.home-img .img-box .img-item {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #1f242d;
+    border-radius: 50%;
+    overflow: hidden;
+    border: .1px solid #1f242d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.home-img .img-box .img-item img {
+    position: absolute;
+    display: block;
+    width: 80%;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+
+}
+
+.bar-animation {
+    position: fixed;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+.bar-animation .bar {
+    width: 100%;
+    height: 100%;
+    background-color: #1f242d;
+    transform: translateY(-100%);
+    animation: Show-bar .5s ease-in-out forwards;
+    animation-delay: calc(.1s * var(--i));
+}
+
+@keyframes Show-bar {
+    100% {
+        transform: translateY(0);
+    }
+}
